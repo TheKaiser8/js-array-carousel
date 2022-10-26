@@ -34,10 +34,10 @@ for (let i = 0; i < images.length; i++) {
 let active = 0;
 const next = document.querySelector('.next');
 
-next.addEventListener('click', function(){
-    if( active === images.length ) {
+next.addEventListener('click', function() {
+    if ( active === images.length ) {
         active = 0;
-    } 
+    }
     itemsContainer.querySelectorAll('.box-item')[active].classList.remove('active');
     active = active + 1;
     itemsContainer.querySelectorAll('.box-item')[active].classList.add('active');
@@ -45,10 +45,12 @@ next.addEventListener('click', function(){
 
 const previous = document.querySelector('.previous');
 
-previous.addEventListener('click', function(){
-    if( active === images.length ) {
-        active = 0;
-    } 
+previous.addEventListener('click', function() {
+    if( active === 0 ) {
+        itemsContainer.querySelectorAll('.box-item')[active].classList.remove('active');
+        active = images.length - 1;
+        itemsContainer.querySelectorAll('.box-item')[active].classList.add('active');
+    }
     itemsContainer.querySelectorAll('.box-item')[active].classList.remove('active');
     active = active - 1;
     itemsContainer.querySelectorAll('.box-item')[active].classList.add('active');
